@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='thanksStyle.css') }}"
+    />
+  </head>
+  <body>
+    <div id="headerDiv">
+      <h3 id="title">Welcome to the FOODANATOR!</h3>
+      <div id="linkDiv">
+        <button class="link"><a href="/">Food Generator!</a></button>
+        <button class="link active">About</button>
+      </div>
+    </div>
+    <hr />
+    <div id="container">
+      <h1 class="center" id="about"></h1>
+      <h2>Look No further!</h2>
+      <p>
+        Using the FOODANATOR simply select what food you like and what foods you
+        dont like
+      </p>
+      <img src="../static/Capture.PNG" alt="" srcset="" />
+      <p>
+        Specify what type of nutritional restraints you have (this part is not
+        necessary to fill out)
+      </p>
+      <img src="../static/Capture2.PNG" alt="" srcset="" />
+      <p>and finally generate some <em>DELECTABLE </em>food</p>
+      <img src="../static/Capture3.PNG" alt="" srcset="" />
+    </div>
+    <script src="{{ url_for('static',filename='thanksScript.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Food Generator</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='style.css') }}"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<div Id="headerDiv">
+    <h1 id="title">Welcome to the FOODANATOR!</h1>
+    <div id="linkDiv">
+    <button class="link active">Food Generator!</button>
+    <button class="link"><a href="/thanks">About</a></button></div>
+    </div>
+    <hr>
+    <div id="cuisineDiv">
+      <h2>What Category of Food?</h2>
+      <p>
+        Click to select a category - click off to deselect (you can also have it
+        be randomly chosen)
+      </p>
+      <div id="includeDiv">
+        <button class="cuisine"  onclick="include(this)">African</button>
+        <button class="cuisine" onclick="include(this)">American</button>
+        <button class="cuisine"  onclick="include(this)">British</button>
+        <button class="cuisine" onclick="include(this)">Cajun</button>
+        <button class="cuisine"  onclick="include(this)">Caribbean</button>
+        <button class="cuisine"  onclick="include(this)">Chinese</button>
+        <button class="cuisine" onclick="include(this)">
+          Eastern European
+        </button>
+        <button class="cuisine" onclick="include(this)">European</button>
+        <button class="cuisine" onclick="include(this)">French</button>
+        <button class="cuisine" onclick="include(this)">German</button>
+        <button class="cuisine" onclick="include(this)">Greek</button>
+        <button class="cuisine" onclick="include(this)">Indian</button>
+        <button class="cuisine" onclick="include(this)">Irish</button>
+        <button class="cuisine" onclick="include(this)">Italian</button>
+        <button class="cuisine" onclick="include(this)">Japanese</button>
+        <button class="cuisine" onclick="include(this)">Jewish</button>
+        <button class="cuisine" onclick="include(this)">Korean</button>
+        <button class="cuisine" onclick="include(this)">Latin American</button>
+        <button class="cuisine" onclick="include(this)">Mediterranean</button>
+        <button class="cuisine" onclick="include(this)">Mexican</button>
+        <button class="cuisine" onclick="include(this)">Middle Eastern</button>
+        <button class="cuisine" onclick="include(this)">Nordic</button>
+        <button class="cuisine" onclick="include(this)">Southern</button>
+        <button class="cuisine" onclick="include(this)">Spanish</button>
+        <button class="cuisine" onclick="include(this)">Thai</button>
+        <button class="cuisine" onclick="include(this)">Vietnamese</button>
+      </div>
+      <hr />
+      <h2>What Categories of Food do you not Like?</h2>
+      <p>
+        Click to select a category - click off to deselect (you can also have it
+        be randomly chosen)
+      </p>
+      <button class="cuisineExclude" onclick="exclude(this)">African</button>
+      <button class="cuisineExclude" onclick="exclude(this)">American</button>
+      <button class="cuisineExclude" onclick="exclude(this)">British</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Cajun</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Caribbean</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Chinese</button>
+      <button class="cuisineExclude" onclick="exclude(this)">
+        Eastern European
+      </button>
+      <button class="cuisineExclude" onclick="exclude(this)">European</button>
+      <button class="cuisineExclude" onclick="exclude(this)">French</button>
+      <button class="cuisineExclude" onclick="exclude(this)">German</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Greek</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Indian</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Irish</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Italian</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Japanese</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Jewish</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Korean</button>
+      <button class="cuisineExclude" onclick="exclude(this)">
+        Latin American
+      </button>
+      <button class="cuisineExclude" onclick="exclude(this)">
+        Mediterranean
+      </button>
+      <button class="cuisineExclude" onclick="exclude(this)">Mexican</button>
+      <button class="cuisineExclude" onclick="exclude(this)">
+        Middle Eastern
+      </button>
+      <button class="cuisineExclude" onclick="exclude(this)">Nordic</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Southern</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Spanish</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Thai</button>
+      <button class="cuisineExclude" onclick="exclude(this)">Vietnamese</button>
+      <hr />
+      <h2>Meal Specifications (these can be left blank)</h2>
+
+      <form id="theForm" method="post">
+        <input
+          type="number"
+          name="calories"
+          id="calories"
+          class="question"
+          autocomplete="off"
+          min="50"
+          max="800"
+          placeholder="50-800(cal)"
+        />
+        <label for="name"
+          ><span
+            >What is the maximum calories you want in your dish?</span
+          ></label
+        >
+        <input
+          type="number"
+          name="protein"
+          class="question"
+          autocomplete="off"
+          min="10"
+          max="100"
+          placeholder="10-100(g)"
+        />
+        <label for="name"
+          ><span
+            >What is the minimum protein you want in your dish(g)?</span
+          ></label
+        >
+        <input
+          type="number"
+          name="carbs"
+          class="question"
+          autocomplete="off"
+          placeholder="10-100(g)"
+          min="10"
+          max="100"
+        />
+        <label for="name"
+          ><span>What is the maximum carbs you want in your dish?</span></label
+        >
+        <input
+          type="number"
+          name="caffeine"
+          id="calories"
+          class="question"
+          autocomplete="off"
+          placeholder="0-100(g)"
+          min="0"
+          max="100"
+        />
+        <label for="name"
+          ><span
+            >What is the maximum caffeine you want in your dish?</span
+          ></label
+        >
+        <input name = "include" id ="includeP" value=""style="opacity:0;"/>
+        <input name = "exclude" id="excludeP" value="" style="opacity:0;"/>
+
+      <button onclick="window.submitMeal()" id="mealButton"><strong>
+        Generate Meal!</strong></button>
+      </form>
+<div class="biggerContainer">
+  <div id='container'>
+        
+{% for i in range(mealLength) %}
+<div class="slider" style="background-color:lightgray;">
+      <img id="{{i}}" class='images' alt="{{ingredients[i]}}" name="{{recipie[i]}}" style="border-radius: 20px;" src="{{meal['results'][i]['image']}}" alt="">
+      <p class="imageText">{{meal['results'][i]['title']}}</p>
+      </div>
+      {%endfor%}
+</div>
+<h3 style="font-size:40px">Click on the Image to get more Info!</h3>
+<div id="container2">
+<div id="iDiv">
+  <h4>Ingredients</h4>
+<p id="textContainer"></p></div>
+<div id="rDiv">
+  <h4>Recipes</h4>
+<p id="recipieContainer"></p>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='script.js') }}"></script>
+  </body>
+</html>
